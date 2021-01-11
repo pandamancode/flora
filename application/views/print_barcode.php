@@ -65,7 +65,9 @@
 	<div class="row">
 		<?php 
 		for($i=1;$i<=$jumlah;$i++){
-	      $generate = $kode.'-'.$i;
+      for($j=1;$j<=10;$j++){
+        $generate = $kode.'-'.$i;
+      
 		?>
 		<div class="col-xs-3" style="border:1px solid black;margin-bottom: 2px;padding-top: 2px;padding-bottom: 2px;">
 			<img  class="barcode128"
@@ -75,11 +77,12 @@
 			  jsbarcode-height="40"
 			  jsbarcode-fontSize="10"/>
 		</div>
-		<?php } ?>
+		<?php }  } ?>
 	</div>
 </div>
 	<script type="text/javascript">
 		JsBarcode(".barcode128").init();
+    window.print();
 	</script>
 </body>
 </html>

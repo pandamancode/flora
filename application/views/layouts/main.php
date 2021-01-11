@@ -11,7 +11,7 @@
     $this->load->view('layouts/js');
     ?>
   </head>
-  <body class="layout-top-nav skin-yellow">
+  <body class="layout-top-nav skin-yellow fixed">
     <div class="wrapper">
       <?php $this->load->view('layouts/header_v'); ?>
       <div class="content-wrapper" id="contenkalo">

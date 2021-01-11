@@ -12,6 +12,16 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
+
+    $tgl_bayar="2021-07-03";
+              $tgl_bayar=date('Y-m-d', strtotime('-1 days', strtotime($tgl_bayar)));
+
+    echo var_dump($tgl_bayar);
+
+    $bln = date('m');
+    $thn = date('Y');
+    $data['bulan'] = bulan($bln).' '.$thn;
+    $data['pelayanan'] = $this->db->query("SELECT count(*) as jml, tgl_pelayanan FROM poli_umum WHERE MONTH(tgl_pelayanan)='$bln' AND YEAR(tgl_pelayanan)='$thn' GROUP BY DATE(tgl_pelayanan) ");
     $data['content'] = 'home';   
     $this->load->view('layouts/main',$data);
 	}

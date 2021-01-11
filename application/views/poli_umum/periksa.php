@@ -4,10 +4,20 @@
  <div class="box box-primary">
     <div class="panel-heading">
       <i class='fa fa-stethoscope fa-fw'></i> Form Pelayanan
-      <strong>[Pasien : (<?=$pasien->nik?> - <?=$pasien->nama_pasien?>) | No.Registrasi : <?=$pasien->no_registrasi?>]</strong>
+      <strong>[Pasien : (<?=$pasien->nik?> - <?=$pasien->nama_pasien?>)]</strong>
     </div>
     <form method="post" action="<?=base_url()?>poli_umum/entry_data">
       <div class="box box-body">
+
+        <div class="form-group col-md-6">
+           <label><i>No. Rekam Medis</i></label>
+           <input type="text" value="<?=$pelayanan->no_registrasi?>" name="no_rm" class="form-control" placeholder="No. Rekam Medis" readonly autocomplete="off">
+        </div>
+
+        <div class="form-group col-md-6">
+           <label><i>Tanggal</i></label>
+           <input type="date" value="<?=$pelayanan->tgl_pelayanan?>" name="tgl_pelayanan" class="form-control" placeholder="Tanggal" required autocomplete="off">
+        </div>
 
         <div class="form-group col-md-3">
            <label><i>Tinggi Badan</i></label>

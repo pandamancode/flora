@@ -52,20 +52,11 @@
                 <td><?= $dk->gender; ?></td>
             </tr>
             <tr>
-              <th>Pekerjaan</th>
-              <th>:</th>
-                <td><?= $dk->pekerjaan; ?></td>
-            </tr>
-            <tr>
               <th>Alamat</th>
               <th>:</th>
                 <td><?= $dk->alamat?></td>
             </tr>
-            <tr>
-              <th>Riwayat Alergi</th>
-              <th>:</th>
-                <td><?= $dk->alergi; ?></td>
-            </tr>
+            
     </table>
 </div>
 

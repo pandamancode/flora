@@ -11,15 +11,14 @@
 				<thead class="table-header">
 					<tr>
 						<th width="5%">No.</th>
-						<th>No. Registrasi</th>
+						<th>No. Rekam Medis</th>
 						<th>Tanggal</th>
 						<th>Keluhan</th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php
-					$rekam_medis = $this->db->select("*")->from("poli_umum")->join("registrasi","registrasi.no_registrasi=poli_umum.no_registrasi")->where("registrasi.nik",$pasien->nik)->order_by("registrasi.no_registrasi","desc")->get();
-					if($rekam_medis->num_rows()>0){
+					$rekam_medis = $this->db->select("*")->from("poli_umum")->join("registrasi","registrasi.no_registrasi=poli_umum.no_registrasi")->where("registrasi.nik",$pasien->nik)->where("poli_umum.status_pelayanan","selesai")->order_by("registrasi.no_registrasi","desc")->get();
 					$no=0;foreach($rekam_medis->result() as $p){ $no++; ?>
 					<tr>
 						<td><?=$no?></td>
@@ -27,7 +26,7 @@
 						<td><?=tgl_indo(date('Y-m-d',strtotime($p->tgl_pelayanan)))?></td>
 						<td><?=$p->keluhan?></td>
 					</tr>
-					<?php } }else{ echo "<tr><td colspan='4'><em>Tidak Ada Data</em></td></tr>"; } ?>
+					<?php } ?>
 				</tbody>
 			</table>
 		</div>

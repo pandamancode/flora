@@ -25,18 +25,6 @@
         $trigliserida = $get_trigliserida[0];
         $trigliserida_ket = $get_trigliserida[1];
 
-        $get_limfosit = explode("|", $periksa->row()->limfosit);
-        $limfosit = $get_limfosit[0];
-        $limfosit_ket = $get_limfosit[1];
-
-        $get_monosit = explode("|", $periksa->row()->monosit);
-        $monosit = $get_monosit[0];
-        $monosit_ket = $get_monosit[1];
-
-        $get_led = explode("|", $periksa->row()->led);
-        $led = $get_led[0];
-        $led_ket = $get_led[1];
-
       }else{
         $kolesterol = false;
         $kolesterol_ket = false;
@@ -49,15 +37,6 @@
 
         $trigliserida = false;
         $trigliserida_ket = false;
-
-        $limfosit = false;
-        $limfosit_ket = false;
-
-        $monosit = false;
-        $monosit_ket = false;
-
-        $led = false;
-        $led_ket = false;
 
       }
     ?>

@@ -26,7 +26,7 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user-md"></i> Poli Umum <span class="caret"></span></a>
           <ul class="dropdown-menu" role="menu">
             <li id="m_reg_poliumum"><a href="<?=base_url()?>pendaftaran"><i class="fa fa-edit"></i> Register Poli Umum</a></li>
-            <li id="m_rekamedis"><a href="<?=base_url()?>poli_umum"><i class="fa fa-stethoscope"></i> Pelayanan</a></li>
+            <li id="m_rekamedis"><a href="<?=base_url()?>poli_umum"><i class="fa fa-stethoscope"></i> Rekam Medis</a></li>
           </ul>
         </li>
 

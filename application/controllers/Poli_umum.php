@@ -187,6 +187,8 @@ class Poli_umum extends CI_Controller {
                     'heart_rate' => $this->input->post('hr'),
                     'keluhan' => $this->input->post('keluhan'),
                     'saran' => $this->input->post('saran'),
+                    'tgl_pelayanan' => date('Y-m-d',strtotime($this->input->post('tgl_pelayanan'))),
+                    'status_pelayanan' => 'selesai',
                 );
             $this->db->update("poli_umum",$data,$where);
             $this->session->set_flashdata("msg","<div class='alert alert-success alert-dismissible' aria-hidden='true'>

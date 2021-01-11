@@ -23,7 +23,7 @@ class Laboratorium extends CI_Controller {
 
     public function hasil($no_mcu){
         $data['no_mcu'] = $no_mcu;
-    	$data['periksa'] = $this->db->get_where("laboratorium",array('no_mcu'=>$no_mcu));
+    	$data['periksa'] = $this->db->get_where("hematologi",array('no_mcu'=>$no_mcu));
     	$data['pasien'] = $this->db->select("*")->from("mcu")->join("pasien","pasien.nik=mcu.nik")->where("mcu.no_mcu",$no_mcu)->get();
     	$data['content'] = 'mcu/laboratorium/form_lab';
 		$this->load->view('layouts/main',$data);
@@ -32,7 +32,7 @@ class Laboratorium extends CI_Controller {
     public function entry_darah_lengkap(){
         if(isset($_POST) && !empty($_POST)){
             $where['no_mcu'] = $this->input->post('no_mcu');
-            $cek = $this->db->get_where("laboratorium",$where);
+            $cek = $this->db->get_where("hematologi",$where);
 
             $hemoglobin = cek_input($this->input->post('hemoglobin'));
             $hemoglobin_ket =  cek_input($this->input->post('hemoglobin_ket'));
@@ -69,7 +69,7 @@ class Laboratorium extends CI_Controller {
                     'mch' => $mch.'|'.$mch_ket,
                     'mchc' => $mchc.'|'.$mchc_ket,
                 );
-                $this->db->update("laboratorium",$data,$where);
+                $this->db->update("hematologi",$data,$where);
             }else{
                 $data = array(
                     'no_mcu' => $this->input->post('no_mcu'),
@@ -82,7 +82,7 @@ class Laboratorium extends CI_Controller {
                     'mch' => $mch.'|'.$mch_ket,
                     'mchc' => $mchc.'|'.$mchc_ket,
                 );
-                $this->db->insert("laboratorium",$data);
+                $this->db->insert("hematologi",$data);
             }
 
             $this->session->set_flashdata("msg","<div class='alert alert-success alert-dismissible' aria-hidden='true'>
@@ -97,7 +97,7 @@ class Laboratorium extends CI_Controller {
 
     public function leokosit($no_mcu){
         $data['no_mcu'] = $no_mcu;
-        $data['periksa'] = $this->db->get_where("laboratorium",array('no_mcu'=>$no_mcu));
+        $data['periksa'] = $this->db->get_where("hematologi",array('no_mcu'=>$no_mcu));
         $data['pasien'] = $this->db->select("*")->from("mcu")->join("pasien","pasien.nik=mcu.nik")->where("mcu.no_mcu",$no_mcu)->get();
         $data['content'] = 'mcu/laboratorium/form_leokosit';
         $this->load->view('layouts/main',$data);
@@ -106,7 +106,7 @@ class Laboratorium extends CI_Controller {
     public function entry_leokosit(){
         if(isset($_POST) && !empty($_POST)){
             $where['no_mcu'] = $this->input->post('no_mcu');
-            $cek = $this->db->get_where("laboratorium",$where);
+            $cek = $this->db->get_where("hematologi",$where);
 
             $basofil = cek_input($this->input->post('basofil'));
             $basofil_ket =  cek_input($this->input->post('basofil_ket'));
@@ -139,7 +139,7 @@ class Laboratorium extends CI_Controller {
                     'monosit' => $monosit.'|'.$monosit_ket,
                     'led' => $led.'|'.$led_ket,
                 );
-                $this->db->update("laboratorium",$data,$where);
+                $this->db->update("hematologi",$data,$where);
             }else{
                 $data = array(
                     'no_mcu' => $this->input->post('no_mcu'),
@@ -151,7 +151,7 @@ class Laboratorium extends CI_Controller {
                     'monosit' => $monosit.'|'.$monosit_ket,
                     'led' => $led.'|'.$led_ket,
                 );
-                $this->db->insert("laboratorium",$data);
+                $this->db->insert("hematologi",$data);
             }
 
             $this->session->set_flashdata("msg","<div class='alert alert-success alert-dismissible' aria-hidden='true'>
@@ -165,7 +165,7 @@ class Laboratorium extends CI_Controller {
 
     public function lemak($no_mcu){
         $data['no_mcu'] = $no_mcu;
-        $data['periksa'] = $this->db->get_where("laboratorium",array('no_mcu'=>$no_mcu));
+        $data['periksa'] = $this->db->get_where("kimia_darah",array('no_mcu'=>$no_mcu));
         $data['pasien'] = $this->db->select("*")->from("mcu")->join("pasien","pasien.nik=mcu.nik")->where("mcu.no_mcu",$no_mcu)->get();
         $data['content'] = 'mcu/laboratorium/form_lemak_darah';
         $this->load->view('layouts/main',$data);
@@ -174,7 +174,7 @@ class Laboratorium extends CI_Controller {
     public function entry_lemak_darah(){
         if(isset($_POST) && !empty($_POST)){
             $where['no_mcu'] = $this->input->post('no_mcu');
-            $cek = $this->db->get_where("laboratorium",$where);
+            $cek = $this->db->get_where("kimia_darah",$where);
 
             $kolesterol = cek_input($this->input->post('kolesterol'));
             $kolesterol_ket =  cek_input($this->input->post('kolesterol_ket'));
@@ -195,7 +195,7 @@ class Laboratorium extends CI_Controller {
                     'ldl' => $ldl.'|'.$ldl_ket,
                     'trigliserida' => $trigliserida.'|'.$trigliserida_ket,
                 );
-                $this->db->update("laboratorium",$data,$where);
+                $this->db->update("kimia_darah",$data,$where);
             }else{
                 $data = array(
                     'no_mcu' => $this->input->post('no_mcu'),
@@ -204,7 +204,7 @@ class Laboratorium extends CI_Controller {
                     'ldl' => $ldl.'|'.$ldl_ket,
                     'trigliserida' => $trigliserida.'|'.$trigliserida_ket,
                 );
-                $this->db->insert("laboratorium",$data);
+                $this->db->insert("kimia_darah",$data);
             }
 
             $this->session->set_flashdata("msg","<div class='alert alert-success alert-dismissible' aria-hidden='true'>
@@ -218,7 +218,7 @@ class Laboratorium extends CI_Controller {
 
     public function ginjal($no_mcu){
         $data['no_mcu'] = $no_mcu;
-        $data['periksa'] = $this->db->get_where("laboratorium",array('no_mcu'=>$no_mcu));
+        $data['periksa'] = $this->db->get_where("kimia_darah",array('no_mcu'=>$no_mcu));
         $data['pasien'] = $this->db->select("*")->from("mcu")->join("pasien","pasien.nik=mcu.nik")->where("mcu.no_mcu",$no_mcu)->get();
         $data['content'] = 'mcu/laboratorium/form_ginjal';
         $this->load->view('layouts/main',$data);
@@ -227,7 +227,7 @@ class Laboratorium extends CI_Controller {
     public function entry_ginjal(){
         if(isset($_POST) && !empty($_POST)){
             $where['no_mcu'] = $this->input->post('no_mcu');
-            $cek = $this->db->get_where("laboratorium",$where);
+            $cek = $this->db->get_where("kimia_darah",$where);
 
             $ureum = cek_input($this->input->post('ureum'));
             $ureum_ket =  cek_input($this->input->post('ureum_ket'));
@@ -244,7 +244,7 @@ class Laboratorium extends CI_Controller {
                     'kreatinin' => $kreatinin.'|'.$kreatinin_ket,
                     'asam_urat' => $asam_urat.'|'.$asam_urat_ket,
                 );
-                $this->db->update("laboratorium",$data,$where);
+                $this->db->update("kimia_darah",$data,$where);
             }else{
                 $data = array(
                     'no_mcu' => $this->input->post('no_mcu'),
@@ -252,7 +252,7 @@ class Laboratorium extends CI_Controller {
                     'kreatinin' => $kreatinin.'|'.$kreatinin_ket,
                     'asam_urat' => $asam_urat.'|'.$asam_urat_ket,
                 );
-                $this->db->insert("laboratorium",$data);
+                $this->db->insert("kimia_darah",$data);
             }
 
             $this->session->set_flashdata("msg","<div class='alert alert-success alert-dismissible' aria-hidden='true'>
@@ -266,7 +266,7 @@ class Laboratorium extends CI_Controller {
 
     public function hati($no_mcu){
         $data['no_mcu'] = $no_mcu;
-        $data['periksa'] = $this->db->get_where("laboratorium",array('no_mcu'=>$no_mcu));
+        $data['periksa'] = $this->db->get_where("kimia_darah",array('no_mcu'=>$no_mcu));
         $data['pasien'] = $this->db->select("*")->from("mcu")->join("pasien","pasien.nik=mcu.nik")->where("mcu.no_mcu",$no_mcu)->get();
         $data['content'] = 'mcu/laboratorium/form_hati';
         $this->load->view('layouts/main',$data);
@@ -275,7 +275,7 @@ class Laboratorium extends CI_Controller {
     public function entry_hati(){
         if(isset($_POST) && !empty($_POST)){
             $where['no_mcu'] = $this->input->post('no_mcu');
-            $cek = $this->db->get_where("laboratorium",$where);
+            $cek = $this->db->get_where("kimia_darah",$where);
 
             $sgot = cek_input($this->input->post('sgot'));
             $sgot_ket =  cek_input($this->input->post('sgot_ket'));
@@ -288,14 +288,14 @@ class Laboratorium extends CI_Controller {
                     'sgot' => $sgot.'|'.$sgot_ket,
                     'sgpt' => $sgpt.'|'.$sgpt_ket,
                 );
-                $this->db->update("laboratorium",$data,$where);
+                $this->db->update("kimia_darah",$data,$where);
             }else{
                 $data = array(
                     'no_mcu' => $this->input->post('no_mcu'),
                     'sgot' => $sgot.'|'.$sgot_ket,
                     'sgpt' => $sgpt.'|'.$sgpt_ket,
                 );
-                $this->db->insert("laboratorium",$data);
+                $this->db->insert("kimia_darah",$data);
             }
 
             $this->session->set_flashdata("msg","<div class='alert alert-success alert-dismissible' aria-hidden='true'>
@@ -309,7 +309,7 @@ class Laboratorium extends CI_Controller {
 
     public function glukosa($no_mcu){
         $data['no_mcu'] = $no_mcu;
-        $data['periksa'] = $this->db->get_where("laboratorium",array('no_mcu'=>$no_mcu));
+        $data['periksa'] = $this->db->get_where("kimia_darah",array('no_mcu'=>$no_mcu));
         $data['pasien'] = $this->db->select("*")->from("mcu")->join("pasien","pasien.nik=mcu.nik")->where("mcu.no_mcu",$no_mcu)->get();
         $data['content'] = 'mcu/laboratorium/form_glukosa';
         $this->load->view('layouts/main',$data);
@@ -318,7 +318,7 @@ class Laboratorium extends CI_Controller {
     public function entry_glukosa(){
         if(isset($_POST) && !empty($_POST)){
             $where['no_mcu'] = $this->input->post('no_mcu');
-            $cek = $this->db->get_where("laboratorium",$where);
+            $cek = $this->db->get_where("kimia_darah",$where);
 
             $sewaktu = cek_input($this->input->post('sewaktu'));
             $sewaktu_ket =  cek_input($this->input->post('sewaktu_ket'));
@@ -331,14 +331,14 @@ class Laboratorium extends CI_Controller {
                     'sewaktu' => $sewaktu.'|'.$sewaktu_ket,
                     'puasa' => $puasa.'|'.$puasa_ket,
                 );
-                $this->db->update("laboratorium",$data,$where);
+                $this->db->update("kimia_darah",$data,$where);
             }else{
                 $data = array(
                     'no_mcu' => $this->input->post('no_mcu'),
                     'sewaktu' => $sewaktu.'|'.$sewaktu_ket,
                     'puasa' => $puasa.'|'.$puasa_ket,
                 );
-                $this->db->insert("laboratorium",$data);
+                $this->db->insert("kimia_darah",$data);
             }
 
             $this->session->set_flashdata("msg","<div class='alert alert-success alert-dismissible' aria-hidden='true'>
@@ -348,6 +348,78 @@ class Laboratorium extends CI_Controller {
             redirect('laboratorium/glukosa/'.$this->input->post('no_mcu'));
         }else $this->error();
         
+    }
+
+    public function immunologi($no_mcu){
+        $data['no_mcu'] = $no_mcu;
+        $data['periksa'] = $this->db->get_where("immunologi",array('no_mcu'=>$no_mcu));
+        $data['pasien'] = $this->db->select("*")->from("mcu")->join("pasien","pasien.nik=mcu.nik")->where("mcu.no_mcu",$no_mcu)->get();
+        $data['content'] = 'mcu/laboratorium/form_immunologi';
+        $this->load->view('layouts/main',$data);
+    }
+
+    public function entry_immunologi(){
+        if(isset($_POST) && !empty($_POST)){
+            $where['no_mcu'] = $this->input->post('no_mcu');
+            $cek = $this->db->get_where("immunologi",$where);
+
+            $widal = cek_input($this->input->post('widal'));
+            $widal_ket =  cek_input($this->input->post('widal_ket'));
+
+            $salmonela = cek_input($this->input->post('salmonela'));
+            $salmonela_ket =  cek_input($this->input->post('salmonela_ket'));
+
+            $malaria = cek_input($this->input->post('malaria'));
+            $malaria_ket =  cek_input($this->input->post('malaria_ket'));
+
+            $dhf = cek_input($this->input->post('dhf'));
+            $dhf_ket =  cek_input($this->input->post('dhf_ket'));
+
+            $hbsag = cek_input($this->input->post('hbsag'));
+            $hbsag_ket =  cek_input($this->input->post('hbsag_ket'));
+
+            $narkoba = cek_input($this->input->post('narkoba'));
+            $narkoba_ket =  cek_input($this->input->post('narkoba_ket'));
+
+            $sifilis = cek_input($this->input->post('sifilis'));
+            $sifilis_ket =  cek_input($this->input->post('sifilis_ket'));
+
+            $hiv = cek_input($this->input->post('hiv'));
+            $hiv_ket =  cek_input($this->input->post('hiv_ket'));
+
+            if($cek->num_rows()>0){
+                $data = array(
+                    'widal' => $widal.'|'.$widal_ket,
+                    'salmonela' => $salmonela.'|'.$salmonela_ket,
+                    'malaria' => $malaria.'|'.$malaria_ket,
+                    'dhf' => $dhf.'|'.$dhf_ket,
+                    'hbsag' => $hbsag.'|'.$hbsag_ket,
+                    'narkoba' => $narkoba.'|'.$narkoba_ket,
+                    'sifilis' => $sifilis.'|'.$sifilis_ket,
+                    'hiv' => $hiv.'|'.$hiv_ket,
+                );
+                $this->db->update("immunologi",$data,$where);
+            }else{
+                $data = array(
+                    'no_mcu' => $this->input->post('no_mcu'),
+                    'widal' => $widal.'|'.$widal_ket,
+                    'salmonela' => $salmonela.'|'.$salmonela_ket,
+                    'malaria' => $malaria.'|'.$malaria_ket,
+                    'dhf' => $dhf.'|'.$dhf_ket,
+                    'hbsag' => $hbsag.'|'.$hbsag_ket,
+                    'narkoba' => $narkoba.'|'.$narkoba_ket,
+                    'sifilis' => $sifilis.'|'.$sifilis_ket,
+                    'hiv' => $hiv.'|'.$hiv_ket,
+                );
+                $this->db->insert("immunologi",$data);
+            }
+
+            $this->session->set_flashdata("msg","<div class='alert alert-success alert-dismissible' aria-hidden='true'>
+                    <h4><i class='icon fa fa-check'></i> Success!</h4>
+                    Hasil Pemeriksaan Immunologi Berhasil disimpan
+                </div>");
+            redirect('laboratorium/immunologi/'.$this->input->post('no_mcu'));
+        }else $this->error();
     }
 
 }
