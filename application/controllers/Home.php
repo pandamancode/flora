@@ -12,12 +12,6 @@ class Home extends CI_Controller {
 
 	public function index()
 	{
-
-    $tgl_bayar="2021-07-03";
-              $tgl_bayar=date('Y-m-d', strtotime('-1 days', strtotime($tgl_bayar)));
-
-    echo var_dump($tgl_bayar);
-
     $bln = date('m');
     $thn = date('Y');
     $data['bulan'] = bulan($bln).' '.$thn;
