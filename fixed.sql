@@ -38,6 +38,25 @@ CREATE TABLE `ekg` (
 insert  into `ekg`(`id_ekg`,`no_mcu`,`heart_rate`,`axis`,`rhythm`,`pr_interval`,`resting_ecg`,`suggestion`,`saran`) values 
 (1,'1610021621-1','80','80','80','80','80','80','skjfdksdjf skdfjskd');
 
+/*Table structure for table `fisioterapi` */
+
+DROP TABLE IF EXISTS `fisioterapi`;
+
+CREATE TABLE `fisioterapi` (
+  `id_fisioterapi` int(11) NOT NULL AUTO_INCREMENT,
+  `no_mcu` varchar(25) DEFAULT NULL,
+  `keterangan` varchar(255) DEFAULT NULL,
+  `diagnosa` varchar(255) DEFAULT NULL,
+  `tindakan` varchar(255) DEFAULT NULL,
+  `evaluasi` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id_fisioterapi`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
+
+/*Data for the table `fisioterapi` */
+
+insert  into `fisioterapi`(`id_fisioterapi`,`no_mcu`,`keterangan`,`diagnosa`,`tindakan`,`evaluasi`) values 
+(1,'1610021621-10','asdf','asdf','asdf','adsf');
+
 /*Table structure for table `hematologi` */
 
 DROP TABLE IF EXISTS `hematologi`;
@@ -259,8 +278,8 @@ CREATE TABLE `pemeriksaan_fisik` (
   `lp` varchar(10) DEFAULT NULL,
   `imt` varchar(10) DEFAULT NULL,
   `persen_lemak` varchar(100) DEFAULT NULL,
-  `sistole` varchar(10) DEFAULT NULL,
-  `diastole` varchar(10) DEFAULT NULL,
+  `tekanan_darah` varchar(10) DEFAULT NULL,
+  `suhu` varchar(10) DEFAULT NULL,
   `nadi` varchar(10) DEFAULT NULL,
   `penglihatan` varchar(100) DEFAULT NULL,
   `saran` text DEFAULT NULL,
@@ -269,7 +288,7 @@ CREATE TABLE `pemeriksaan_fisik` (
 
 /*Data for the table `pemeriksaan_fisik` */
 
-insert  into `pemeriksaan_fisik`(`id_pemeriksaan`,`no_mcu`,`keluhan`,`operasi`,`pengobatan`,`konsumsi_obat`,`tb`,`bb`,`bb_ideal`,`lp`,`imt`,`persen_lemak`,`sistole`,`diastole`,`nadi`,`penglihatan`,`saran`) values 
+insert  into `pemeriksaan_fisik`(`id_pemeriksaan`,`no_mcu`,`keluhan`,`operasi`,`pengobatan`,`konsumsi_obat`,`tb`,`bb`,`bb_ideal`,`lp`,`imt`,`persen_lemak`,`tekanan_darah`,`suhu`,`nadi`,`penglihatan`,`saran`) values 
 (1,'1610021621-1','skdfjs sdksdjk','ksjdkfj','ksjdfkj','skjfksj',180,80,'80','50','24','-','-','-','asdf','adfs','sdjfksdjf');
 
 /*Table structure for table `penyakit` */
@@ -336,14 +355,15 @@ DROP TABLE IF EXISTS `poli_umum`;
 CREATE TABLE `poli_umum` (
   `no_invoice` varchar(15) NOT NULL,
   `no_registrasi` varchar(10) DEFAULT NULL,
+  `no_rm` varchar(25) DEFAULT NULL,
   `tgl_pelayanan` date NOT NULL,
   `keluhan` text DEFAULT NULL,
   `tb` float DEFAULT NULL,
   `bb` float DEFAULT NULL,
   `lp` float DEFAULT NULL,
   `imt` double DEFAULT NULL,
-  `sistole` varchar(10) DEFAULT NULL,
-  `diastole` varchar(10) DEFAULT NULL,
+  `tekanan_darah` varchar(10) DEFAULT NULL,
+  `suhu` varchar(10) DEFAULT NULL,
   `respiratory_rate` varchar(10) DEFAULT NULL,
   `heart_rate` varchar(10) DEFAULT NULL,
   `id_ig` int(11) DEFAULT NULL,
@@ -356,18 +376,8 @@ CREATE TABLE `poli_umum` (
 
 /*Data for the table `poli_umum` */
 
-insert  into `poli_umum`(`no_invoice`,`no_registrasi`,`tgl_pelayanan`,`keluhan`,`tb`,`bb`,`lp`,`imt`,`sistole`,`diastole`,`respiratory_rate`,`heart_rate`,`id_ig`,`biaya_tindakan`,`status_pelayanan`,`pembayaran`,`saran`) values 
-('INV210105001','210105001','2021-01-04','mual',180,80,55,24,NULL,NULL,NULL,NULL,2,150000,'selesai','sudah',NULL),
-('INV210105002','210105002','2021-01-04','asdf',155,45,27,18,NULL,NULL,NULL,NULL,1,250000,'selesai','sudah',NULL),
-('INV210105003','210105003','2021-01-04','-',160,50,29,19,NULL,NULL,NULL,NULL,1,250000,'selesai','sudah',NULL),
-('INV210105004','210105004','2021-01-04','-',155,50,25,20,NULL,NULL,NULL,NULL,2,150000,'selesai','sudah',NULL),
-('INV210105005','210105005','2021-01-04','-',160,60,30,23,NULL,NULL,NULL,NULL,1,250000,'selesai','sudah',NULL),
-('INV210105006','210105006','2021-01-04','-',160,70,55,27,NULL,NULL,NULL,NULL,1,250000,'selesai','sudah',NULL),
-('INV210106001','210106001','2021-01-06','-',180,80,35,24,'22','22','22','22',NULL,NULL,'selesai','belum',NULL),
-('INV210107001','210107001','2021-01-07','mual, pusing',180,50,55,15,'-','-','-','-',NULL,NULL,'dalam proses','belum','makan teratur'),
-('INV210107002','210107002','2021-01-07','pusing',180,80,50,24,'-','-','-','-',NULL,NULL,'dalam proses','belum','jgn banyak pikiran'),
-('INV210107003','210107003','2021-01-08','Sakit pinggang',165,50,30,18,'35','55','30','5',NULL,NULL,'dalam proses','belum','Banyak minum'),
-('INV210111001','210111001','2021-01-09','pusing',180,50,27,15,'-','-','-','-',NULL,NULL,'selesai','belum','asdf');
+insert  into `poli_umum`(`no_invoice`,`no_registrasi`,`no_rm`,`tgl_pelayanan`,`keluhan`,`tb`,`bb`,`lp`,`imt`,`tekanan_darah`,`suhu`,`respiratory_rate`,`heart_rate`,`id_ig`,`biaya_tindakan`,`status_pelayanan`,`pembayaran`,`saran`) values 
+('INV210112001','210112001','RM210112001','2021-01-12','mual muntah, pusing',165,60,32,22,'120/80','36','-','-',NULL,NULL,'selesai','belum','Banyak istrahat');
 
 /*Table structure for table `registrasi` */
 
@@ -380,17 +390,12 @@ CREATE TABLE `registrasi` (
   `status` enum('dalam antrian','selesai') NOT NULL DEFAULT 'dalam antrian',
   `date_created` datetime NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id_reg`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4;
 
 /*Data for the table `registrasi` */
 
 insert  into `registrasi`(`id_reg`,`no_registrasi`,`nik`,`status`,`date_created`) values 
-(3,210106001,'0001','selesai','2021-01-06 09:47:58'),
-(4,210107001,'74293894829','dalam antrian','2021-01-07 23:16:28'),
-(5,210107002,'10283892','dalam antrian','2021-01-08 00:37:52'),
-(7,210107003,'74293894829','dalam antrian','2021-01-08 11:49:33'),
-(8,210111001,'1610021621-10','dalam antrian','2021-01-11 09:07:54'),
-(9,210111002,'10283892','dalam antrian','2021-01-11 11:28:04');
+(1,210112001,'74293894829','dalam antrian','2021-01-12 10:34:51');
 
 /*Table structure for table `rontgen` */
 
@@ -430,7 +435,7 @@ CREATE TABLE `users` (
 /*Data for the table `users` */
 
 insert  into `users`(`id_user`,`uname`,`nama`,`password`,`level`,`last_login`) values 
-(1,'admin','admin','202cb962ac59075b964b07152d234b70','','2021-01-11 02:44:36');
+(1,'admin','admin','202cb962ac59075b964b07152d234b70','','2021-01-12 09:12:33');
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

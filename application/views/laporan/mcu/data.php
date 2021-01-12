@@ -55,6 +55,13 @@
             }else{
                 $unit_lab3 = "";
             }
+
+            $fisioterapi = $this->db->get_where("fisioterapi",array('no_mcu'=>$r->no_mcu));
+            if($fisioterapi->num_rows()>0){
+                $unit_fisioterapi = "<li style='display:block;'><i class='fa fa-check'></i> Fisioterapi</li>";
+            }else{
+                $unit_fisioterapi = "";
+            }
     ?>
         <tr>
             <td class="text-center"><?php echo $no; ?></td>
@@ -63,7 +70,7 @@
             <td><?=$pasien->row()->nik?></td>
             <td><?=$pasien->row()->nama_pasien?></td>
             <td>
-                <?=$unit_ekg.''.$unit_rontgen.''.$unit_lab1.''.$unit_lab2.''.$unit_lab3?>
+                <?=$unit_ekg.''.$unit_rontgen.''.$unit_lab1.''.$unit_lab2.''.$unit_lab3.''.$unit_fisioterapi?>
             </td>
         </tr>
     <?php }  }else{ echo "<tr><td colspan='5'><i>Tidak Ada Transaksi</i></td></tr>"; } ?>

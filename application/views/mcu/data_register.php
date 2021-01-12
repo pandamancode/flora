@@ -1,7 +1,7 @@
 <div class="box box-primary">
 	<div class="box-header">
-	    <h3 class="box-title">Data Registerasi MCU</h3>
-	 </div>
+		<h3 class="box-title">Data Registerasi MCU</h3>
+	</div>
 	<div class="box box-body">
 		<div class="table-responsive">
 			<table class='table table-striped table-hover' id='tbl'>
@@ -26,7 +26,8 @@
 						<td><?=$pasien->nama_pasien?></td>
 						<td><?=tgl_indo($r->tgl_mcu)?></td>
 						<td>
-							<a href="<?=base_url()?>Register_mcu/cetak_hasil/<?=$r->no_mcu?>" target="_blank" class="btn btn-primary btn-xs btn-flat"><i class="fa fa-print"></i> Print Hasil MCU</a>
+							<a href="<?=base_url()?>Register_mcu/cetak_hasil/<?=$r->no_mcu?>" target="_blank"
+								class="btn btn-primary btn-xs btn-flat"><i class="fa fa-print"></i> Print Hasil MCU</a>
 						</td>
 					</tr>
 					<?php } ?>

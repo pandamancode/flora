@@ -47,7 +47,7 @@
 <script type="text/javascript">
 	setTimeout(function() {document.getElementById('respon1').innerHTML='';},2000);
 	$('#m_poliumum').addClass('active');
-	$('#m_poli').addClass('active');
+	$('#m_rekamedis').addClass('active');
 
 	$(function () {
 	    $("#tbl").dataTable({

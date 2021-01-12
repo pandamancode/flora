@@ -3,9 +3,10 @@
 	<div class="col-md-12">
 		<div class="box box-primary">
 			<div class="box-header">
-			    <h3 class="box-title">Data Registrasi <b style="color:red;"><?=tgl_indo(date('Y-m-d'))?></b></h3>
-			    <a href="<?=base_url()?>pendaftaran/pasien_reg" class="btn-add pull-right"><i class="fa fa-edit fa-fw"></i> Registrasi Pasien&nbsp;</a>
-			 </div>
+				<h3 class="box-title">Data Registrasi <b style="color:red;"><?=tgl_indo(date('Y-m-d'))?></b></h3>
+				<a href="<?=base_url()?>pendaftaran/pasien_reg" class="btn-add pull-right"><i
+						class="fa fa-edit fa-fw"></i> Registrasi Pasien&nbsp;</a>
+			</div>
 			<div class="box box-body">
 				<div class="table-responsive">
 					<table class='table table-striped table-hover' id='tbl'>
@@ -51,24 +52,26 @@
 	$('#m_poliumum').addClass('active');
 
 	$(function () {
-	    $("#tbl").dataTable({
-	      "iDisplayLength": 10,
-	      "order": [[5,"asc"]]
-	    });
+		$("#tbl").dataTable({
+			"iDisplayLength": 10,
+			"order": [
+				[5, "asc"]
+			]
+		});
 	});
 
-	$(document).on("click", ".btn-pasien", function() {
-	  var id = $(this).attr("data-id");
-	  
-	  $.ajax({
-	    method: "POST",
-	    url: "<?php echo base_url('Pendaftaran/data_pasien'); ?>",
-	    data: "id=" +id
-	  })
-	  .done(function(data) {
-	    $('#tempat-modal').html(data);
-	    $('.modal-dialog').attr('class','modal-dialog modal-lg');        
-	    $('#md_pasien').modal('show');
-	  })
+	$(document).on("click", ".btn-pasien", function () {
+		var id = $(this).attr("data-id");
+
+		$.ajax({
+				method: "POST",
+				url: "<?php echo base_url('Pendaftaran/data_pasien'); ?>",
+				data: "id=" + id
+			})
+			.done(function (data) {
+				$('#tempat-modal').html(data);
+				$('.modal-dialog').attr('class', 'modal-dialog modal-lg');
+				$('#md_pasien').modal('show');
+			})
 	})
 </script>

@@ -1,6 +1,6 @@
 <div class="box box-primary">
 	<div class="panel-heading">
-	    <i class='fa fa-list-alt fa-fw'></i> Identitas Pasien</strong>
+		<i class='fa fa-list-alt fa-fw'></i> Identitas Pasien</strong>
 	</div>
 	<div class="box box-body">
 		<div class="table-responsive">
