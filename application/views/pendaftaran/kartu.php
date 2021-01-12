@@ -22,6 +22,11 @@
               <td width="25%">Tanggal : <?=tgl_indo(date('Y-m-d',strtotime($dk->date_created)))?></td> 
             </tr>
             <tr>
+              <th>No.&nbsp;RM</th>
+              <th>:</th>
+                <td>RM<?=$dk->no_registrasi;?></td>
+            </tr>
+            <tr>
               <th>Tanggal&nbsp;Registrasi</th>
               <th>:</th>
                 <td><?=tgl_indo(date('Y-m-d',strtotime($dk->date_created)))?></td>

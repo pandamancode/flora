@@ -25,11 +25,12 @@ class Poli_umum extends CI_Controller {
             $sess['sess_no_reg'] = $no_reg;
             $this->session->set_userdata($sess);
             $invoice = 'INV'.$no_reg;
+            $rm = 'RM'.$no_reg;
             $cek = $this->db->get_where("poli_umum",array('no_invoice'=>$invoice));
             if($cek->num_rows()>0){
-                //no action
+                $this->db->query("UPDATE poli_umum SET no_rm='$rm' WHERE no_invoice='$invoice' ");
             }else{
-                $this->db->query("INSERT INTO poli_umum (no_invoice,no_registrasi) VALUES ('$invoice','$no_reg') ");
+                $this->db->query("INSERT INTO poli_umum (no_invoice,no_registrasi,no_rm) VALUES ('$invoice','$no_reg','$rm') ");
             }
             $data['no_invoice'] = $invoice;
             $data['pasien'] = $this->db->select("pasien.nik,pasien.nama_pasien,registrasi.no_registrasi")->from("registrasi")->join("pasien","pasien.nik=registrasi.nik")->where("registrasi.no_registrasi",$no_reg)->get()->row();
@@ -177,12 +178,13 @@ class Poli_umum extends CI_Controller {
         if(isset($_POST) && !empty($_POST)){
             $where['no_invoice'] = $this->input->post('no_invoice');
             $data = array(
+                    'no_rm' => $this->input->post('no_rm'),
                     'tb' => $this->input->post('tb'),
                     'bb' => $this->input->post('bb'),
                     'lp' => $this->input->post('lp'),
                     'imt' => $this->input->post('imt'),
-                    'sistole' => $this->input->post('sistole'),
-                    'diastole' => $this->input->post('diastole'),
+                    'tekanan_darah' => $this->input->post('tekanan_darah'),
+                    'suhu' => $this->input->post('suhu'),
                     'respiratory_rate' => $this->input->post('rr'),
                     'heart_rate' => $this->input->post('hr'),
                     'keluhan' => $this->input->post('keluhan'),

@@ -40,6 +40,14 @@
 
         <li><a href="<?=base_url()?>home"><i class="fa fa-bed"></i> Fisioterapi</a></li>
 
+        <li class="dropdown" id="m_laporan">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-file-text-o"></i> Laporan <span class="caret"></span></a>
+          <ul class="dropdown-menu" role="menu">
+            <li id="m_lap_kunjungan"><a href="<?=base_url()?>laporan">Pasien Poli Umum</a></li>
+            <li id="m_lap_mcu"><a href="<?=base_url()?>laporan/mcu">Pasien MCU</a></li>
+          </ul>
+        </li>
+
       </ul>
 
       <ul class="nav navbar-nav navbar-right">

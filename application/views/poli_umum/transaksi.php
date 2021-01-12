@@ -11,7 +11,7 @@
 				<thead class="table-header">
 					<tr>
 						<th width="5%">No.</th>
-						<th>No. Rekam Medis</th>
+						<th>No. RM</th>
 						<th>Tanggal</th>
 						<th>Keluhan</th>
 					</tr>
@@ -22,7 +22,7 @@
 					$no=0;foreach($rekam_medis->result() as $p){ $no++; ?>
 					<tr>
 						<td><?=$no?></td>
-						<td><?=$p->no_registrasi?></td>
+						<td><?=$p->no_rm?></td>
 						<td><?=tgl_indo(date('Y-m-d',strtotime($p->tgl_pelayanan)))?></td>
 						<td><?=$p->keluhan?></td>
 					</tr>

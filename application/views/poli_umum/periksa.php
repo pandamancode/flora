@@ -11,7 +11,7 @@
 
         <div class="form-group col-md-6">
            <label><i>No. Rekam Medis</i></label>
-           <input type="text" value="<?=$pelayanan->no_registrasi?>" name="no_rm" class="form-control" placeholder="No. Rekam Medis" readonly autocomplete="off">
+           <input type="text" value="<?=$pelayanan->no_rm?>" name="no_rm" class="form-control" placeholder="No. Rekam Medis" readonly autocomplete="off">
         </div>
 
         <div class="form-group col-md-6">
@@ -40,23 +40,23 @@
         </div>
 
         <div class="form-group col-md-3">
-           <label><i>Sistole</i></label>
-           <input type="text" value="<?=$pelayanan->sistole?>" name="sistole" id="sistole" class="form-control" placeholder="Sistole" required autocomplete="off">
+           <label><i>Tekanan Darah</i></label>
+           <input type="text" value="<?=$pelayanan->tekanan_darah?>" name="tekanan_darah" id="tekanan_darah" class="form-control" placeholder="Tekanan Darah" required autocomplete="off">
         </div>
 
         <div class="form-group col-md-3">
-           <label><i>Diastole</i></label>
-           <input type="text" value="<?=$pelayanan->diastole?>" name="diastole" id="diastole" class="form-control" placeholder="Diastole" required autocomplete="off">
+           <label><i>Suhu</i></label>
+           <input type="text" value="<?=$pelayanan->suhu?>" name="suhu" id="suhu" class="form-control" placeholder="Suhu" required autocomplete="off">
         </div>
          
         <div class="form-group col-md-3">
-           <label><i>Respiratory Rate</i></label>
-           <input type="text" value="<?=$pelayanan->respiratory_rate?>" name="rr" id="rr" class="form-control" placeholder="Respiratory Rate" required autocomplete="off">
+           <label><i>Pernapasan</i></label>
+           <input type="text" value="<?=$pelayanan->respiratory_rate?>" name="rr" id="rr" class="form-control" placeholder="Pernapasan" required autocomplete="off">
         </div>
           
         <div class="form-group col-md-3">
-            <label><i>Heart Rate</i></label>
-            <input type="text" value="<?=$pelayanan->heart_rate?>" name="hr" id="hr" class="form-control" placeholder="Heart Rate" required autocomplete="off">
+            <label><i>Nadi</i></label>
+            <input type="text" value="<?=$pelayanan->heart_rate?>" name="hr" id="hr" class="form-control" placeholder="Nadi" required autocomplete="off">
         </div>
 
         <div class="form-group col-md-12">
@@ -205,8 +205,8 @@
     var bb = $('#bb').val();
     var lp = $('#lp').val();
     var imt = $('#imt').val();
-    var sistole = $('#sistole').val();
-    var diastole = $('#diastole').val();
+    var sistole = $('#tekanan_darah').val();
+    var diastole = $('#suhu').val();
     var rr = $('#rr').val();
     var hr = $('#hr').val();
     var keluhan = $('#keluhan').val();
@@ -262,7 +262,7 @@
     if(sistole=='' || sistole==null){
       $.gritter.add({
           title: "Error",
-          text: "Sistole Harus di Isi",
+          text: "Tekanan Darah Harus di Isi",
           sticky: false,
           class_name: "error",
           time: 500,
@@ -273,7 +273,7 @@
     if(diastole=='' || diastole==null){
       $.gritter.add({
           title: "Error",
-          text: "Diastole Harus di Isi",
+          text: "Suhu Harus di Isi",
           sticky: false,
           class_name: "error",
           time: 500,

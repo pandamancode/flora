@@ -6,7 +6,7 @@
       <div class="box box-primary box-solid">
         <div class="box-header with-border">
         <i class="fa fa-filter "></i>
-          <h3 class="box-title">Filter Laporan Pasien Poli Umum </h3>
+          <h3 class="box-title">Filter Laporan Pasien MCU </h3>
           <div class="box-tools pull-right">
             <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
           </div>
@@ -47,19 +47,16 @@
 
 <div id="tempat-modal"></div>
 <script type="text/javascript">
-//Active Menu Sidebars
-// $('#prod').chained("#fak");
-
 $(document).ready(function() { 
     $('#m_laporan').addClass('active');
-    $('#m_lap_kunjungan').addClass('active');
+    $('#m_lap_mcu').addClass('active');
 });
 
 function preview() {
     dataString = $("#form-filter").serialize();
     $.ajax({
         type:"POST",
-        url:"<?php echo base_url(); ?>Laporan/filter_kunjungan",
+        url:"<?php echo base_url(); ?>Laporan/filter_mcu",
         data:dataString,
         
         success: function(msg){
