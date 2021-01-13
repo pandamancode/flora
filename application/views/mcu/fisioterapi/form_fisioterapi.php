@@ -1,5 +1,6 @@
 <div id="respon1"><?php echo $this->session->flashdata('msg'); ?></div>
 <div class="row">
+
 <div class="col-md-8">
  <div class="box box-primary">
     <div class="panel-heading">
@@ -45,6 +46,7 @@
 
         <div class="form-group col-md-12 text-right">
             <input type="hidden" value="<?=$no_mcu?>" name="no_mcu">
+            <a href="<?=base_url()?>fisioterapi/kartu_fisioterapi/<?=$no_mcu?>" target="_blank" class="btn btn-success btn-sm btn-flat"><i class="fa fa-print"></i> Cetak Kartu Fisioterapi</a>
             <button type="submit" class="btn btn-primary btn-flat btn-sm"><i class="fa fa-save"></i> Simpan Pemeriksaan</button>
         </div>
       </div>    

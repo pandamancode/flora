@@ -59,4 +59,12 @@ class Fisioterapi extends CI_Controller {
         }else $this->error();
     }
 
+    public function kartu_fisioterapi($mcu){
+        if(isset($mcu) && !empty($mcu)){
+            $cek = $this->db->get_where("mcu",array('no_mcu'=>$mcu))->row();
+            $data['pasien'] = $this->db->get_where("pasien",array('nik'=>$cek->nik))->row();
+            $data['fisioterapi'] = $this->db->select("*")->from("mcu")->join("fisioterapi","fisioterapi.no_mcu=mcu.no_mcu")->where("mcu.nik",$cek->nik)->get();
+            $this->load->view('mcu/fisioterapi/fisioterapi_pdf',$data);
+        }else $this->error();
+    }
 }

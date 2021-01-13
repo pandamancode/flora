@@ -5,13 +5,12 @@ class Akun extends CI_Controller {
 
     function __construct(){
 		parent::__construct();
-         if ($this->session->userdata('uname')==""){
-		 	redirect('login');
-		 }
+         	if ($this->session->userdata('uname')==""){
+		 		redirect('login');
+		 	}
     }
     
 	public function index(){
-		
 		$data['petugas'] = $this->db->query("SELECT * FROM tb_petugas WHERE password IS NOT NULL AND level_user IS NOT NULL");
 		$data['content'] = 'akun/akun';
 		$this->load->view('layouts/main_kasir_v',$data);
